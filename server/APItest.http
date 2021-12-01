@@ -1,0 +1,186 @@
+@url=http://localhost:3000
+###
+get {{url}}
+
+###
+post {{url}}/api/items/addItem
+Content-Type: application/json
+
+{
+    "title": "2019年上半年 软件设计师",
+    "label": "软考真题"
+}
+# {
+#     "name": "dp",
+#     "email": "dp.163.com",
+#     "password": "000000"
+# }
+
+###
+post {{url}}/api/items/updataItem
+Content-Type: application/json
+
+{
+    "id":"61a2ef8d8fa143c820f51cb1",
+    "title": "2019年下半年 软件设计师",
+    "label": "软考"
+}
+
+###
+post {{url}}/api/items/findByid
+Content-Type: application/json
+
+{
+    "id":"61a2ee41b914d74455ee8ba8"
+}
+
+###
+post {{url}}/api/items/findBytitle
+Content-Type: application/json
+
+{
+    "title": "2018年下半年 软件设计师"
+}
+
+###
+post {{url}}/api/items/findBylabel
+Content-Type: application/json
+
+{
+   "label": "软考真题"
+}
+
+###
+post {{url}}/api/items/find
+Content-Type: application/json
+
+{
+   "page": 1,
+   "rows": 4
+}
+
+###
+post {{url}}/api/items/delete
+Content-Type: application/json
+
+{
+   "id": "61a2ee41b914d74455ee8ba8"
+}
+
+
+###
+post {{url}}/api/comments/addComment
+Content-Type: application/json
+
+{
+   "user_id": "61a2ef738fa143c820f51cab",
+   "item_question_id":"61a2ef738fa143c820f51cab",
+   "content":"辉辉"
+}
+
+
+###
+post {{url}}/api/favorites/addFavorite
+Content-Type: application/json
+
+{
+   "user_id":"61a2ef738fa143c820f51cab",
+   "favorite_id":"61a2ef738fa143c820f51cab",
+   "question_id":"61a2ef738fa143c820f51cab",
+   "item_id":"61a2ef738fa143c820f51cab"
+}
+
+
+###
+post {{url}}/api/favorites/delete
+Content-Type: application/json
+
+{
+   "id":"61a39187ab218e2c523e5dd2"
+}
+
+
+###
+post {{url}}/api/comments/delete
+Content-Type: application/json
+
+{
+   "id": "61a38052ab218e2c523e5dbf"
+}
+
+###
+post {{url}}/api/wrongs/addWrong
+Content-Type: application/json
+
+{
+   "user_id": "61a2ef738fa143c820f51cab",
+   "question_id":"61a2ef738fa143c820f51cab"
+}
+
+###
+post {{url}}/api/wrongs/delete
+Content-Type: application/json
+
+{
+   "id": "61a38b99ab218e2c523e5dc9"
+}
+
+
+
+###
+post {{url}}/api/questions/addQuestion
+Content-Type: application/json
+
+{
+   "problem": "问题描述",
+   "answer": "问题答案",
+   "analysis": "问题解析",
+   "type": "单选题"
+}
+
+###
+post {{url}}/api/questions/delete
+Content-Type: application/json
+
+{
+   "id":"61a38603ab218e2c523e5dc4"
+}
+
+###
+post {{url}}/api/users/register
+Content-Type: application/json
+
+{
+   "name": "gongwuh",
+   "emil": "gongwuhu@qq.com",
+   "password": "123456"
+}
+
+###
+post {{url}}/api/users/login
+Content-Type: application/json
+
+{
+   "name": "gongwuhui",
+   "password": "123456"
+}
+
+###
+post {{url}}/api/users/find
+Content-Type: application/json
+
+{
+   "name": "GWH001"
+}
+
+###
+post {{url}}/api/users/update
+Content-Type: application/json
+
+{
+   "id":"61a34ffb019b8df1110583c6",
+   "name": "gong",
+   "emil": "gong@qq.com",
+   "password": "123456",
+   "avatar":"bjxsnjk"
+}
