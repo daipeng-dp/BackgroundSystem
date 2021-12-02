@@ -56,8 +56,10 @@ router.post('/addWrong', (req, res) => {
  * @apiVersion 0.0.0
  */
  router.post('/delete', (req, res) => {
+    var id = req.body.id;
+    var sid = mongoose.Types.ObjectId(id);
     wrong.findByIdAndRemove({
-        _id: req.body.id
+        _id: sid
     })
     .then(wr => {
         res.json(wr);
@@ -87,8 +89,10 @@ router.post('/addWrong', (req, res) => {
  * @apiVersion 0.0.0
  */
  router.post('/updataWrong', (req, res) => {
+    var id = req.body.id;
+    var sid = mongoose.Types.ObjectId(id);
     wrong.findOneAndUpdate({
-        _id: req.body.id
+        _id: sid
     }, {
         $set: {
             user_id: req.body.user_id,

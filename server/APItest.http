@@ -64,7 +64,7 @@ post {{url}}/api/items/delete
 Content-Type: application/json
 
 {
-   "id": "61a2ee41b914d74455ee8ba8"
+   "id": "61a2ef168fa143c820f51ca7"
 }
 
 
@@ -122,7 +122,7 @@ post {{url}}/api/wrongs/delete
 Content-Type: application/json
 
 {
-   "id": "61a38b99ab218e2c523e5dc9"
+   "id": "61a76e74c74489b6b9716354"
 }
 
 
@@ -143,7 +143,7 @@ post {{url}}/api/questions/delete
 Content-Type: application/json
 
 {
-   "id":"61a38603ab218e2c523e5dc4"
+   "id":"61a8dad2e777352af2215528"
 }
 
 ###

@@ -57,16 +57,18 @@ router.post('/addQuestion', (req, res) => {
  * {}
  * @apiVersion 0.0.0
  */
- router.post('/delete', (req, res) => {
+router.post('/delete', (req, res) => {
+    var id = req.body.id;
+    var sid = mongoose.Types.ObjectId(id);
     question.findByIdAndRemove({
-        _id: req.body.id
-    })
-    .then(Ques => {
-        res.json(Ques);
-    })
-    .catch(err => {
-        res.json(err);
-    });
+            _id: sid
+        })
+        .then(Ques => {
+            res.json(Ques);
+        })
+        .catch(err => {
+            res.json(err);
+        });
 })
 
 
@@ -90,21 +92,23 @@ router.post('/addQuestion', (req, res) => {
  * {}
  * @apiVersion 0.0.0
  */
- router.post('/updataQuestion', (req, res) => {
+router.post('/updataQuestion', (req, res) => {
+    var id = req.body.id;
+    var sid = mongoose.Types.ObjectId(id);
     question.findOneAndUpdate({
-        _id: req.body.id
-    }, {
-        $set: {
-            problem: req.body.problem,
-            answer: req.body.answer,
-            analysis: req.body.analysis,
-            type: req.body.type
-        }
-    }, {
-        new: true
-    })
-    .then(Ques => res.json(Ques))
-    .catch(err => res.json(err));
+            _id: sid
+        }, {
+            $set: {
+                problem: req.body.problem,
+                answer: req.body.answer,
+                analysis: req.body.analysis,
+                type: req.body.type
+            }
+        }, {
+            new: true
+        })
+        .then(Ques => res.json(Ques))
+        .catch(err => res.json(err));
 })
 
 
@@ -123,7 +127,7 @@ router.post('/addQuestion', (req, res) => {
  * {}
  * @apiVersion 0.0.0
  */
- router.post('/findByproblem', (req, res) => {
+router.post('/findByproblem', (req, res) => {
     question.find({
             problem: req.body.problem
         })
@@ -150,7 +154,7 @@ router.post('/addQuestion', (req, res) => {
  * {}
  * @apiVersion 0.0.0
  */
- router.post('/findByid', (req, res) => {
+router.post('/findByid', (req, res) => {
     var id = req.body.id;
     var sid = mongoose.Types.ObjectId(id);
     console.log(sid);
@@ -183,7 +187,7 @@ router.post('/addQuestion', (req, res) => {
  * {}
  * @apiVersion 0.0.0
  */
- router.post('/find', (req, res) => {
+router.post('/find', (req, res) => {
     var query = question.find({});
     var count = 0;
     var page = req.body.page;
