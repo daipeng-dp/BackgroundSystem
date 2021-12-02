@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router(); //实例化一个路由
 const wrong = require('../../models/Wrong.model') //错题module
-
+var mongoose = require('mongoose');
 
 // 以下为错题增删改查接口
 
@@ -118,8 +118,10 @@ router.post('/addWrong', (req, res) => {
  * @apiVersion 0.0.0
  */
  router.post('/findByid', (req, res) => {
-    wrong.find({
-            _id: req.body.id
+    var id = req.body.id;
+    var sid = mongoose.Types.ObjectId(id);
+    wrong.findOne({
+            _id: sid
         })
         .then(wr => {
             res.json(wr);

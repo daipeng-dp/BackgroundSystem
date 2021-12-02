@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router(); //实例化一个路由
 const favorite = require('../../models/favorite.model') //收藏module
-
+var mongoose = require('mongoose');
 
 // 以下为收藏增删改查接口
 
@@ -123,8 +123,10 @@ router.post('/updatafavorite', (req, res) => {
  * @apiVersion 0.0.0
  */
 router.post('/findByid', (req, res) => {
-    favorite.find({
-            _id: req.body.id
+    var id = req.body.id;
+    var sid = mongoose.Types.ObjectId(id);
+    favorite.findOne({
+            _id: sid
         })
         .then(favor => {
             res.json(favor);

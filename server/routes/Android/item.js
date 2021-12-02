@@ -3,6 +3,8 @@
 const express = require('express');
 const router = express.Router(); //实例化一个路由
 const item = require('../../models/Item.model') //题库module
+const ObjectId = require('mongodb').ObjectId;
+var mongoose = require('mongoose');
 
 
 // 以下为题库增删改查接口
@@ -55,7 +57,7 @@ router.post('/addItem', (req, res) => {
  * {}
  * @apiVersion 0.0.0
  */
- router.post('/delete', (req, res) => {
+router.post('/delete', (req, res) => {
     item.findByIdAndRemove({
             _id: req.body.id
         })
@@ -147,8 +149,11 @@ router.post('/findBytitle', (req, res) => {
  * @apiVersion 0.0.0
  */
 router.post('/findByid', (req, res) => {
-    item.find({
-            _id: req.body.id
+    var id = req.body.id;
+    var sid = mongoose.Types.ObjectId(id);
+    console.log(sid);
+    item.findOne({
+            _id: sid
         })
         .then(hero => {
             res.json(hero);
@@ -156,6 +161,23 @@ router.post('/findByid', (req, res) => {
         .catch(err => {
             res.json(err);
         });
+    // 查询指定文档
+    // item.findById(req.body.id, function (err, doc) {
+    //     if (err){ 
+    //         console.log(err);
+    //         res.json(err);
+    //     } 
+    //     else{ 
+    //         console.log("result:", doc);
+    //         res.json({result:doc}); 
+    //     } 
+    // });
+    // ).then(hero => {
+    //     res.json(hero);
+    // })
+    // .catch(err => {
+    //     res.json(err);
+    // });
 })
 
 /**

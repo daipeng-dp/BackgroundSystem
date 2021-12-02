@@ -8,6 +8,7 @@ var bcrypt = require("bcrypt"); //加密模块
 // const nodemailer = require("nodemailer"); // 邮件发送模块
 // const smtpTransport = require("nodemailer-smtp-transport");
 var salt = bcrypt.genSaltSync(10); //设置加密强度
+var mongoose = require('mongoose');
 
 //以下为用户操作接口
 

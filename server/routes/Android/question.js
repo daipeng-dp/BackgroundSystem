@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router(); //实例化一个路由
 const question = require('../../models/Question.model') //问题module
-
+var mongoose = require('mongoose');
 
 // 以下为问题增删改查接口
 
@@ -151,11 +151,15 @@ router.post('/addQuestion', (req, res) => {
  * @apiVersion 0.0.0
  */
  router.post('/findByid', (req, res) => {
-    question.find({
-            _id: req.body.id
+    var id = req.body.id;
+    var sid = mongoose.Types.ObjectId(id);
+    console.log(sid);
+    question.findOne({
+            _id: sid
         })
-        .then(Ques => {
-            res.json(Ques);
+        .then(data => {
+            console.log(data);
+            res.json(data);
         })
         .catch(err => {
             res.json(err);

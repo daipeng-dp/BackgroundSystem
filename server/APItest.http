@@ -27,11 +27,11 @@ Content-Type: application/json
 }
 
 ###
-post {{url}}/api/items/findByid
+post {{url}}/api/questions/findByid
 Content-Type: application/json
 
 {
-    "id":"61a2ee41b914d74455ee8ba8"
+    "id": "61a76e74c74489b6b9716352"
 }
 
 ###

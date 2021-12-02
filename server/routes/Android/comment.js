@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router(); //实例化一个路由
 const comment = require('../../models/Comment.model') //评论module
-
+var mongoose = require('mongoose');
 
 // 以下为评论增删改查接口
 
@@ -120,8 +120,10 @@ router.post('/addComment', (req, res) => {
  * @apiVersion 0.0.0
  */
  router.post('/findByid', (req, res) => {
-    comment.find({
-            _id: req.body.id
+    var id = req.body.id;
+    var sid = mongoose.Types.ObjectId(id);
+    comment.findOne({
+            _id: sid
         })
         .then(comm => {
             res.json(comm);
