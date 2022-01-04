@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "doc": "apidoc -i routes/ -o public/apidoc/"
+    "doc": "apidoc -i routes/ -o public/apidoc/",
+    "db": "node ./util/word.js"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
